@@ -16,7 +16,7 @@
 }
 
 .sheet-list-item:hover {
-    background: #33C481;
+    background: rgb(114, 248, 200);
     border: 1px dashed #217346;
 }
 
