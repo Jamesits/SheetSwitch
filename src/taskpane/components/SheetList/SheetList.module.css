@@ -1,0 +1,11 @@
+.sheet-list {
+    margin: 2px;
+}
+
+.sheet-list-item {
+    list-style-type: disc;
+}
+
+.sheet-list-item-active {
+    background-color: red;
+}

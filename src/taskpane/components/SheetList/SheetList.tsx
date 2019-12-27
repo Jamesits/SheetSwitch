@@ -2,14 +2,10 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import usePromise from 'react-use-promise';
 import { useExcelEvent } from "./ExcelKit";
+import classNames from 'classnames/bind';
 
-// const loadExample = function <T>(batch: (context: Excel.RequestContext) => Promise<T>) {
-//     return new Promise((resolve, reject) => {
-//         Excel.run((context) => {
-//             return batch(context).then(resolve, reject)
-//         }).then(resolve, reject)
-//     });
-// }
+const styles = require("./SheetList.module.css");
+let cx = classNames.bind(styles);
 
 const loadSheets = async () => Excel.run(async function (context) {
     var sheets = context.workbook.worksheets;
@@ -19,7 +15,14 @@ const loadSheets = async () => Excel.run(async function (context) {
     return sheets.items.map((item) => item.name);
 })
 
-const setActiveSheet = (i: string) => {
+const getActiveSheet = async () => Excel.run(async (context) => {
+    var sheet = context.workbook.worksheets.getActiveWorksheet();
+    sheet.load("name");
+    await context.sync();
+    return sheet.name;
+})
+
+const setActiveSheet = (i: string, callback: (string) => void) => {
     console.log("Switching to", i);
     Excel.run(function (context) {
         var sheet = context.workbook.worksheets.getItem(i);
@@ -29,21 +32,38 @@ const setActiveSheet = (i: string) => {
         return context.sync()
             .then(function () {
                 console.log(`The active worksheet is "${sheet.name}"`);
+                callback(sheet.name);
             });
     }).catch(() => { console.log("error") });
 }
 
 const SheetList: React.FC = () => {
+    const [activeSheetName, setActiveSheetName] = useState("");
     const [worksheets, setWorksheets] = useState([]);
     const [result, error, state] = usePromise(async () => setWorksheets(await loadSheets()), []);
+    usePromise(async () => setActiveSheetName(await getActiveSheet()), []);
 
     useExcelEvent(
         (context) => context.workbook.worksheets.onAdded,
-        async () => {
-            const sheets = await loadSheets();
-            console.log(sheets);
-            setWorksheets(sheets);
-        }, 
+        async () => setWorksheets(await loadSheets()),
+        []
+    );
+
+    useExcelEvent(
+        (context) => context.workbook.worksheets.onChanged,
+        async () => setWorksheets(await loadSheets()),
+        []
+    );
+
+    useExcelEvent(
+        (context) => context.workbook.worksheets.onDeleted,
+        async () => setWorksheets(await loadSheets()),
+        []
+    );
+
+    useExcelEvent(
+        (context) => context.workbook.worksheets.onActivated,
+        async () => setActiveSheetName(await getActiveSheet()),
         []
     );
 
@@ -56,10 +76,14 @@ const SheetList: React.FC = () => {
 
     return (
         <div>
-            Sheets: 
-            {worksheets.length}
-            <ol>
-                {worksheets.map((value, key) => <li key={key} onClick={setActiveSheet.bind(undefined, value)}>{value}</li>)}
+            <ol className={styles["sheet-list"]}>
+                {worksheets.map((value, key) => 
+                    <li key={key} onClick={setActiveSheet.bind(undefined, value, setActiveSheetName)}
+                        className={cx('sheet-list-item', {
+                            'sheet-list-item-active':  activeSheetName === value,
+                        })}
+                    >{value}</li>
+                )}
             </ol>
         </div>
     )
