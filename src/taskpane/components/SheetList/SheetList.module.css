@@ -1,3 +1,7 @@
+.sheet-list-app {
+    user-select: none;
+}
+
 .position-indicator {
     margin: 0;
     padding: 4px 8px;

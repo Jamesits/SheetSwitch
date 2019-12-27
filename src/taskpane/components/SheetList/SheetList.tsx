@@ -75,7 +75,7 @@ const SheetList: React.FC = () => {
     if (state !== "resolved") return <div>Loading</div>
 
     return (
-        <div>
+        <div className={cx("sheet-list-app")}>
             <p className={cx("position-indicator")}>Position: {worksheets.indexOf(activeSheetName) + 1} / {worksheets.length}</p>
             <ol className={cx("sheet-list")}>
                 {worksheets.map((value, key) => 
