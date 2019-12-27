@@ -76,7 +76,8 @@ const SheetList: React.FC = () => {
 
     return (
         <div>
-            <ol className={styles["sheet-list"]}>
+            <p className={cx("position-indicator")}>Position: {worksheets.indexOf(activeSheetName) + 1} / {worksheets.length}</p>
+            <ol className={cx("sheet-list")}>
                 {worksheets.map((value, key) => 
                     <li key={key} onClick={setActiveSheet.bind(undefined, value, setActiveSheetName)}
                         className={cx('sheet-list-item', {

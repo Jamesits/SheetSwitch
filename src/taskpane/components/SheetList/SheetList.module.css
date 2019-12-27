@@ -1,11 +1,26 @@
+.position-indicator {
+    margin: 0;
+    padding: 4px 8px;
+}
+
 .sheet-list {
-    margin: 2px;
+    margin: 0;
+    padding: 2px 0;
 }
 
 .sheet-list-item {
-    list-style-type: disc;
+    list-style-type: none;
+    margin: 0;
+    padding: 4px 8px;
+    border: 1px dashed white;
+}
+
+.sheet-list-item:hover {
+    background: #33C481;
+    border: 1px dashed #217346;
 }
 
 .sheet-list-item-active {
-    background-color: red;
+    background-color: #21A366;
+    border: 1px solid #217346;
 }
