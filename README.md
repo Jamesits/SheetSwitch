@@ -18,7 +18,8 @@ Installation:
 
 Upgrade metadata:
 
-Open Excel -> Insert -> My Add-ins -> Shared Folder, Click Refresh on the top right, then select SheetSwitch and click Add again.
+1. Download the new `manifest.xml` to the SMB share
+2. Open Excel -> Insert -> My Add-ins -> Shared Folder, Click Refresh on the top right, then select SheetSwitch and click Add again
 
 ## Usage
 
