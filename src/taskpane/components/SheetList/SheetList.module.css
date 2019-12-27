@@ -1,5 +1,6 @@
 .sheet-list-app {
     user-select: none;
+    -ms-user-select: none;
 }
 
 .position-indicator {
