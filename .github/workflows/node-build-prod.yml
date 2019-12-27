@@ -19,8 +19,13 @@ jobs:
       - name: Check out
         uses: actions/checkout@v1
 
+      - name: Install deps
+        run: npm ci
+
+      - name: Schema Validation
+        run: npm run validate
+
       - name: Build
         run: |
-          npm ci
           npm run build
           ls -alh dist/
