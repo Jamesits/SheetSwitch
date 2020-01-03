@@ -4,22 +4,21 @@ Quickly switch worksheets in a sidebar for Excel.
 
 ## Installation
 
-### Sideloading (Windows)
+Micro$oft does not allow personal developer without a company to publish add-ins, so currently you can only sideload this plugin if you want to use it. 
 
-For development use or loading a specific version.
+### Sideloading
 
-Installation:
+* [Windows](https://github.com/Jamesits/SheetSwitch/wiki/Sideloading:-Windows)
+* [macOS](https://github.com/Jamesits/SheetSwitch/wiki/Sideloading:-macOS)
+* [Other platforms](https://docs.microsoft.com/en-us/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing)
 
-1. Set up a SMB share on your PC, for example, `\\localhost\office-addins`
-2. Put `manifest.xml` in your SMB share (e.g. `\\localhost\office-addins\sheetswitch.xml`)
-3. Excel -> File -> Options -> Trust Center -> Trust Center Settings -> Trusted Add-in Catalogs -> Catalog Url: `\\localhost\office-addins`, click Add catalog, OK
-4. Relaunch Excel
-5. Excel -> Insert -> My Add-ins -> Shared Folder -> SheetSwitch, click Add
+After sideloading the metadata, go to Excel -> Insert -> Add-ins -> My Add-ins (drop-down menu) -> Developer Add-ins and click SheetSwitch to activate the add-in.
 
-Upgrade metadata:
+### Other Installation Methods
 
-1. Download the new `manifest.xml` to the SMB share
-2. Open Excel -> Insert -> My Add-ins -> Shared Folder, Click Refresh on the top right, then select SheetSwitch and click Add again
+e.g. if you are a SharePoint admin and want to make it available to all of your company's computer:
+
+https://docs.microsoft.com/en-us/office/dev/add-ins/publish/publish
 
 ## Usage
 
