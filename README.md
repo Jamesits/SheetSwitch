@@ -2,6 +2,10 @@
 
 Quickly switch worksheets in a sidebar for Excel.
 
+![Screenshot 1](assets/screenshot-1@2x.png)
+
+![Screenshot 2](assets/screenshot-2@2x.png)
+
 ## Installation
 
 Micro$oft does not allow personal developer without a company to publish add-ins, so currently you can only sideload this plugin if you want to use it. 
