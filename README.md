@@ -1,6 +1,6 @@
 # SheetSwitch
 
-Quickly switch worksheets in a sidebar for Excel.
+Quickly switch worksheets in a sidebar for Excel. Handy for cases where you have a lot worksheets or worksheet names are really long.
 
 ![Screenshot 1](assets/screenshot-1@2x.png)
 
