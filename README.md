@@ -8,7 +8,7 @@ Quickly switch worksheets in a sidebar for Excel. Handy for cases where you have
 
 ## Installation
 
-Micro$oft does not allow personal developer without a company to publish add-ins, so currently you can only sideload this plugin if you want to use it. 
+Microsoft does not allow personal developer without a company to publish add-ins, so currently you can only sideload this plugin if you want to use it. 
 
 ### Sideloading
 
