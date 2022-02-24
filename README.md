@@ -1,3 +1,7 @@
+# Deprecation Notice
+
+This project is now abandoned due to [Microsoft releasing the navigation pane for Excel](https://insider.office.com/en-us/blog/see-the-big-picture-with-navigation-pane-for-excel) which is a direct replacement of this plugin. This plugin will continue to run as long as possible, but it will not be updated for any additional functionality or bug fixes. 
+
 # SheetSwitch
 
 Quickly switch worksheets in a sidebar for Excel. Handy for cases where you have a lot worksheets or worksheet names are really long.
